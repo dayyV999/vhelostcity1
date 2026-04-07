@@ -1,15 +1,28 @@
 import { MongoClient } from "mongodb";
 
 export default async function handler(req, res) {
-  const uri = process.env.MONGODB_URI;
+  try {
+    const uri = process.env.MONGODB_URI;
 
-  const client = new MongoClient(uri);
-  await client.connect();
+    if (!uri) {
+      return res.status(500).json({ error: "Missing MONGODB_URI" });
+    }
 
-  const db = client.db("vhelostcity");
-  const collection = db.collection("products");
+    const client = new MongoClient(uri);
 
-  const products = await collection.find({}).toArray();
+    await client.connect();
 
-  res.status(200).json(products);
+    const db = client.db("vhelostcity");
+    const collection = db.collection("products");
+
+    const products = await collection.find({}).toArray();
+
+    await client.close();
+
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({
+      error: error.message
+    });
+  }
 }
