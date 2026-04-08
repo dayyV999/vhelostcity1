@@ -423,6 +423,139 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   @media (max-width: 768px) {
+   .product-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.product-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.product-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.product-modal-content {
+  position: relative;
+  width: min(960px, calc(100% - 2rem));
+  background: var(--paper);
+  border: 1px solid var(--smoke);
+  padding: 2rem;
+  z-index: 2;
+  transform: translateY(20px);
+  transition: transform 0.35s ease;
+}
+
+.product-modal.open .product-modal-content {
+  transform: translateY(0);
+}
+
+.product-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.product-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.product-modal-image-wrap {
+  background: var(--smoke);
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.product-modal-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-modal-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 1rem;
+}
+
+.product-modal-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  margin-bottom: 0.75rem;
+}
+
+#modalCategory,
+#modalPrice {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 0.75rem;
+}
+
+.product-modal-desc {
+  font-size: 0.72rem;
+  line-height: 2;
+  color: var(--ink);
+  margin: 1.5rem 0 2rem;
+}
+
+.product-modal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ink);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.product-modal-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .product-modal-content {
+    padding: 1.25rem;
+  }
+
+  .product-modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
     nav { padding: 1.25rem 1.5rem; }
     .hero { padding: 0 1.5rem; }
     .section { padding: 5rem 1.5rem; }
@@ -734,10 +867,33 @@ async function loadProducts() {
 
     const grid = document.getElementById('productGrid');
     if (grid) {
-      grid.innerHTML = '<p style="font-size:0.8rem; color: var(--ash);">Failed to load products.</p>';
+      grid.innerHTML = products.map((product, index) => {
+  return `
+    <div 
+      class="collection-card reveal"
+      style="transition-delay:${index * 0.1}s"
+      data-name="${product.name}"
+      data-category="${product.category}"
+      data-price="${product.price}"
+      data-image="${product.image}"
+    >
+      <div class="card-img">
+        <img src="${product.image}" alt="${product.name}">
+        <div class="card-overlay">
+          <span class="card-overlay-text">Quick View</span>
+        </div>
+      </div>
+      <div class="card-label">
+        <div>
+          <p class="card-name">${product.name}</p>
+          <p class="card-tag">${product.category} · SS25</p>
+        </div>
+        <span class="card-price">$${product.price}</span>
+      </div>
+    </div>
+  `;
+}).join('');
     }
-  }
-}
 
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
