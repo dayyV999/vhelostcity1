@@ -657,7 +657,6 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 async function loadProducts() {
   try {
-    const res = await fetch('/api/products');
     const products = [
   {
     name: "Obsidian Hoodie",
