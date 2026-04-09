@@ -594,7 +594,54 @@ body.modal-open {
 
 .loader-inner {
   padding: 2rem;
-  max-width: 700px;
+  max-width: 800px;
+  perspective: 1200px;
+}
+
+.loader-logo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  min-height: 180px;
+}
+
+.loader-logo-3d {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #b08a56;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: logoSpin3D 3.2s linear infinite;
+  text-shadow:
+    1px 1px 0 #9c7748,
+    2px 2px 0 #89663d,
+    3px 3px 0 #755532,
+    4px 4px 0 #614527,
+    5px 5px 0 #4d351d,
+    6px 6px 12px rgba(13, 13, 13, 0.2);
+}
+
+.loader-logo-3d::before,
+.loader-logo-3d::after {
+  content: "VheLostCity";
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.loader-logo-3d::before {
+  color: rgba(13, 13, 13, 0.08);
+  transform: translateZ(-12px) translateX(8px) translateY(8px);
+  filter: blur(1px);
+}
+
+.loader-logo-3d::after {
+  color: rgba(255, 255, 255, 0.35);
+  transform: translateZ(8px);
 }
 
 .loader-eyebrow {
@@ -602,27 +649,39 @@ body.modal-open {
   letter-spacing: 0.45em;
   text-transform: uppercase;
   color: var(--ash);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   animation: fadeUp 0.8s ease forwards;
 }
 
-.loader-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin-bottom: 1rem;
-  animation: fadeUp 1s ease forwards;
-}
-
 .loader-sub {
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ash);
   line-height: 2;
   animation: fadeUp 1.2s ease forwards;
+}
+
+body.loading {
+  overflow: hidden;
+}
+
+@keyframes logoSpin3D {
+  0% {
+    transform: rotateX(12deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(10deg) rotateY(90deg);
+  }
+  50% {
+    transform: rotateX(12deg) rotateY(180deg);
+  }
+  75% {
+    transform: rotateX(10deg) rotateY(270deg);
+  }
+  100% {
+    transform: rotateX(12deg) rotateY(360deg);
+  }
 }
  
 @media (max-width: 768px) {
@@ -646,9 +705,12 @@ body.modal-open {
 <body>
  <div class="site-loader" id="siteLoader">
   <div class="loader-inner">
+    <div class="loader-logo-wrap">
+      <div class="loader-logo-3d">VheLostCity</div>
+    </div>
+
     <p class="loader-eyebrow">Loading</p>
-    <h1 class="loader-title">Welcome to VheLostCity</h1>
-    <p class="loader-sub">And remember — don’t get lost.</p>
+    <p class="loader-sub">Welcome to VheLostCity — and remember, don’t get lost.</p>
   </div>
 </div>
  
