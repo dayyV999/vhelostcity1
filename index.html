@@ -4,15 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VheLostCity</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230d0d0d'/%3E%3Cpolygon points='10,10 22,10 32,50 27,50' fill='%23f5f2ec'/%3E%3Cpolygon points='54,10 42,10 32,50 37,50' fill='%23f5f2ec'/%3E%3Cline x1='0' y1='24' x2='64' y2='24' stroke='%230d0d0d' stroke-width='2.5'/%3E%3Cline x1='0' y1='36' x2='64' y2='36' stroke='%230d0d0d' stroke-width='2.5'/%3E%3Cline x1='10' y1='54' x2='54' y2='54' stroke='%23b8b4ae' stroke-width='0.8'/%3E%3Crect x='29' y='57' width='6' height='6' rx='1' fill='%23b8b4ae'/%3E%3C/svg%3E" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230a0f1e'/%3E%3Cpolygon points='10,10 22,10 32,50 27,50' fill='%23c9a84c'/%3E%3Cpolygon points='54,10 42,10 32,50 37,50' fill='%23c9a84c'/%3E%3Cline x1='0' y1='24' x2='64' y2='24' stroke='%230a0f1e' stroke-width='2.5'/%3E%3Cline x1='0' y1='36' x2='64' y2='36' stroke='%230a0f1e' stroke-width='2.5'/%3E%3Cline x1='10' y1='54' x2='54' y2='54' stroke='%23c9a84c' stroke-width='0.8'/%3E%3Crect x='29' y='57' width='6' height='6' rx='1' fill='%23c9a84c'/%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 
+  <div class="marble-overlay"></div>
+  <div class="grid-depth-layer"></div>
+
+  <main class="greek-site">
+
   <!-- ── LOADER ───────────────────────────────── -->
   <div class="site-loader" id="siteLoader">
     <div class="loader-inner">
+      <div class="loader-columns">
+        <div class="loader-col"></div>
+        <div class="loader-col"></div>
+        <div class="loader-col"></div>
+      </div>
       <div class="loader-logo-wrap">
         <div class="loader-logo-3d">VheLostCity</div>
       </div>
@@ -49,50 +59,110 @@
       <li><a href="#about">About</a></li>
       <li><a href="#stockists">Stockists</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li>
+        <button class="admin-orders-btn" id="adminOrdersBtn" type="button">Orders</button>
+      </li>
+      <li>
+        <button class="cart-nav-btn" aria-label="View cart">
+          <span class="cart-icon">◈</span>
+          <span class="cart-count">0</span>
+        </button>
+      </li>
     </ul>
   </nav>
 
   <!-- ── HERO ──────────────────────────────────── -->
   <section class="hero" id="home">
+    <div class="hero-depth-bg"></div>
+    <div class="hero-marble-accent"></div>
+    <div class="hero-column-left">
+      <div class="col-shaft"></div>
+      <div class="col-capital"></div>
+      <div class="col-base"></div>
+    </div>
+    <div class="hero-column-right">
+      <div class="col-shaft"></div>
+      <div class="col-capital"></div>
+      <div class="col-base"></div>
+    </div>
+
     <p class="hero-eyebrow">Est. — Clothing &amp; Apparel</p>
     <div class="hero-name"><span>Vhe</span></div>
     <div class="hero-name"><span>Lost</span></div>
     <div class="hero-name"><span>City</span></div>
     <div class="hero-sub">
       <p>Crafted for those<br>who move between worlds.</p>
-      <a href="#collections" class="hero-cta">
-        View Collection
-        <span style="display:inline-block;width:20px;height:1px;background:currentColor;"></span>
+      <a href="#collections" class="hero-cta">Shop Drop</a>
+      <a href="#about" class="hero-cta hero-cta-secondary">
+        Enter The City
+        <span class="cta-line"></span>
       </a>
     </div>
-    <div class="hero-line"></div>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
+
+    <div class="hero-greek-key-bottom"></div>
   </section>
+
+  <div class="custom-scrollbar">
+    <div class="scroll-track">
+      <div class="scroll-thumb"></div>
+    </div>
+    <div class="scroll-text">SCROLL</div>
+  </div>
 
   <!-- ── MARQUEE ────────────────────────────────── -->
   <div class="marquee-section">
+    <div class="greek-key-border top"></div>
     <div class="marquee-track" id="marqueeTrack"></div>
+    <div class="greek-key-border bottom"></div>
   </div>
 
   <!-- ── COLLECTIONS ───────────────────────────── -->
   <section class="section" id="collections">
     <div class="section-header reveal">
       <div>
-        <p class="section-number">01 /</p>
+        <p class="section-number">Ι /</p>
         <h2 class="section-title">Current Drop</h2>
       </div>
       <a href="#" class="section-link">View all →</a>
     </div>
+
+    <div class="collection-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="outerwear">Outerwear</button>
+      <button class="filter-btn" data-filter="tops">Tops</button>
+      <button class="filter-btn" data-filter="bottoms">Bottoms</button>
+    </div>
+
+    <div class="collection-sort">
+      <label for="sortSelect">Sort</label>
+      <select id="sortSelect">
+        <option value="featured">Featured</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="name">Name: A-Z</option>
+      </select>
+    </div>
+
+    <div class="collection-search">
+      <label for="productSearch">Search</label>
+      <input id="productSearch" type="search" placeholder="Search the drop..." />
+    </div>
+
     <div class="collection-grid" id="productGrid"></div>
   </section>
 
   <!-- ── PHILOSOPHY ────────────────────────────── -->
   <section class="statement-section" id="philosophy">
+    <div class="statement-columns">
+      <div class="stmt-col"></div>
+      <div class="stmt-col"></div>
+      <div class="stmt-col"></div>
+      <div class="stmt-col"></div>
+      <div class="stmt-col"></div>
+    </div>
     <div class="statement-inner reveal">
       <p class="statement-label">The Philosophy</p>
+      <div class="statement-ornament">⟡</div>
       <p class="statement-text">"Between the known and the forgotten, we dress the wanderer."</p>
       <a href="#about" class="statement-cta">Our Story</a>
     </div>
@@ -102,7 +172,7 @@
   <section class="section" id="about">
     <div class="section-header reveal">
       <div>
-        <p class="section-number">02 /</p>
+        <p class="section-number">ΙΙ /</p>
         <h2 class="section-title">About</h2>
       </div>
     </div>
@@ -120,18 +190,20 @@
   <section class="section" id="stockists">
     <div class="section-header reveal">
       <div>
-        <p class="section-number">03 /</p>
+        <p class="section-number">ΙΙΙ /</p>
         <h2 class="section-title">Stockists</h2>
       </div>
     </div>
     <div class="stockists-grid reveal">
       <div class="stockist-card">
-        <p class="stockist-city">New York</p>
-        <p class="stockist-info">Coming soon<br>Flagship placement in development</p>
+        <div class="stockist-ornament"></div>
+        <p class="stockist-city">Online Flagship</p>
+        <p class="stockist-info">VheLostCity is currently available exclusively online.</p>
       </div>
       <div class="stockist-card">
-        <p class="stockist-city">Los Angeles</p>
-        <p class="stockist-info">Select retail partners soon<br>Private showroom appointments pending</p>
+        <div class="stockist-ornament"></div>
+        <p class="stockist-city">Wholesale</p>
+        <p class="stockist-info">Retail partnerships, showroom requests, and stockists inquiries are now open.</p>
       </div>
     </div>
   </section>
@@ -140,7 +212,7 @@
   <section class="section" id="contact">
     <div class="section-header reveal">
       <div>
-        <p class="section-number">04 /</p>
+        <p class="section-number">ΙV /</p>
         <h2 class="section-title">Contact</h2>
       </div>
     </div>
@@ -158,26 +230,29 @@
 
   <!-- ── FOOTER ─────────────────────────────────── -->
   <footer>
-    <div>
-      <p class="footer-brand">VheLostCity</p>
-      <p class="footer-tagline">Lost in the Right Places</p>
-    </div>
-    <div>
-      <p class="footer-col-title">Navigate</p>
-      <ul class="footer-links">
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#home">Lookbook</a></li>
-        <li><a href="#stockists">Stockists</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-col-title">Follow</p>
-      <ul class="footer-links">
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">TikTok</a></li>
-        <li><a href="#">Pinterest</a></li>
-      </ul>
+    <div class="footer-greek-key"></div>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand">VheLostCity</p>
+        <p class="footer-tagline">Lost in the Right Places</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#home">Lookbook</a></li>
+          <li><a href="#stockists">Stockists</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Follow</p>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 
@@ -208,11 +283,76 @@
             <p><strong>Sizes:</strong> <span id="modalSizes"></span></p>
             <p><strong>Code:</strong> <span id="modalCode"></span></p>
           </div>
-          <a href="#contact" class="product-modal-btn" id="modalInquireBtn">Inquire</a>
+          <div class="size-picker">
+            <p class="size-picker-label">Select Size</p>
+            <div class="size-options" id="sizeOptions"></div>
+          </div>
+          <button class="product-modal-btn" id="modalAddToCartBtn" type="button">Add to Cart</button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- ── CART DRAWER ──────────────────────────── -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+    <div class="cart-toast" id="cartToast">Added to cart</div>
+    <aside class="cart-drawer-panel">
+      <div class="cart-drawer-header">
+        <p>Shopping Cart</p>
+        <button id="cartCloseBtn" type="button">×</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <p class="cart-empty">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0.00</span>
+        </div>
+        <button class="checkout-btn" type="button" id="checkoutBtn">Checkout</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ── CHECKOUT MODAL ──────────────────────── -->
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-backdrop" id="checkoutBackdrop"></div>
+    <div class="checkout-box">
+      <button class="checkout-close" id="checkoutCloseBtn" type="button">×</button>
+      <p class="checkout-label">Secure Checkout</p>
+      <h3>Order Summary</h3>
+      <div id="checkoutSummary"></div>
+      <form class="checkout-form" id="checkoutForm">
+        <input type="text" id="customerName" placeholder="Full Name" required>
+        <input type="email" id="customerEmail" placeholder="Email" required>
+        <input type="tel" id="customerPhone" placeholder="Phone Number" required>
+        <input type="text" id="customerAddress" placeholder="Shipping Address" required>
+        <button class="checkout-confirm-btn" type="submit">Complete Purchase</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── ADMIN ORDERS ─────────────────────────── -->
+  <div class="admin-orders" id="adminOrders">
+    <div class="admin-orders-backdrop" id="adminOrdersBackdrop"></div>
+    <div class="admin-orders-panel">
+      <button class="admin-orders-close" id="adminOrdersClose">×</button>
+      <p class="admin-orders-label">Admin</p>
+      <h3>Customer Orders</h3>
+      <div class="admin-stats">
+        <p>Total Orders: <span id="adminOrderCount">0</span></p>
+        <p>Total Revenue: <span id="adminRevenue">$0</span></p>
+      </div>
+      <div class="admin-orders-topbar">
+        <input type="search" id="adminOrdersSearch" placeholder="Search orders...">
+        <button type="button" id="clearOrdersBtn" class="clear-orders-btn">Clear Orders</button>
+      </div>
+      <div id="adminOrdersList"></div>
+    </div>
+  </div>
+
+  </main>
 
   <script src="index.js" defer></script>
 </body>
